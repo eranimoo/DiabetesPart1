@@ -1,5 +1,5 @@
 # DiabetesPart1
-CMPE541 - PROJECT #1
+PROJECT #1
 
 The objective of this project is:
 •	Work with a real-life dataset
@@ -73,10 +73,15 @@ How to Do Blood Sugar Level Prediction - Preliminaries
 First off, we cannot work with 70 different files. We need to consolidate them. Also we may need additional markers associating different measurements for food consumption, blood sugar measurements and activity. Below are the suggestions I am making. You can use any programming language, even use a professional database tool to do it; You may also deviate from my suggestions for structuring the data. The aim is having correct predictions at the end of project #3, so it is up to you. Here are some of my suggestions:
 We need to consolidate different patient files into a single file/database structure so that we don't need to deal with multiple files all the time. Additionally, we need to differentiate users in this file with some marker. Last, the time structure is not a usable one, thus convert times into a numeric form.
 What we can do is a 4-file structure. The files and their contents are as follows:
+
 •	.info: Contains two numbers; how many users there are and how many total attributes are recorded in the other files.
+
 •	.users: this file has as many lines as users in our dataset. The line number associates user with a user ID (patID - patient ID). In each line there is a single number representing how many entries that user has. (This file can be extended in order to keep how many blood measurements, food intakes and exercise activities that person has and etc.)
+
 •	.attrs: One line is associated with each attribute. at each line there are 5 numeric entries: attribute code, [0,1] is it a blood sugar measurement, [0,1] is it a standard measurement, [0,1] is it a meal measurement, [0,1] is it an exercise measurement. 
+
 •	.dat: at each line there is a time stamp, a patient ID, an attribute code, and attribute value. The total number of lines stored in the .info file.
+
 Last, time in the original data is not suitable for comparison. We might like to convert it into linux timestamp (google it !).
 As a last task, sort the .dat file with respect to time. 
 More information on how we create features for our machine learning models in Project #2.
